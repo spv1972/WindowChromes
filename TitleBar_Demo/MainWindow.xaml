@@ -1,0 +1,48 @@
+﻿<Window x:Class="TitleBar_Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:w="clr-namespace:WindowChromes;assembly=WindowChromes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="515" 
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ClipToBounds="False"
+        WindowStartupLocation="CenterScreen">
+
+
+    <Window.Resources>
+        <PathGeometry x:Key="MediaIconGeometry">F1 M23.587 15.474c0 0 5.445 4.124 5.445 4.124s-4.077 12.401-4.077 12.401c0 0-7.634-4.732-7.634-4.732s6.266-11.793 6.266-11.793zM25.362 4.83c0 0 1.706 1.475 1.706 1.475s-11.641 19.789-11.641 19.789c0 0-3.46-2.145-3.46-2.145s13.394-19.12 13.394-19.12zM12.626 5.976c0 0 10.086 7.737 10.086 7.737s-7.284 12.382-7.284 12.382c0 0-15.428-9.564-15.428-9.564s12.626-10.555 12.626-10.555zM25.362 4.83c0 0 6.638 5.738 6.638 5.738s-2.435 7.407-2.435 7.407c0 0-8.687-6.744-8.687-6.744s4.484-6.402 4.484-6.402zM19.775 0c0 0 4.589 3.967 4.589 3.967s-4.315 5.58-4.315 5.58c0 0-6.030-4.735-6.030-4.735s5.756-4.812 5.756-4.812z</PathGeometry>
+    </Window.Resources>
+
+            <w:AeroGlassChrome.AeroGlassChrome>
+        <w:AeroGlassChrome/>
+    </w:AeroGlassChrome.AeroGlassChrome>
+
+
+    <Grid>
+
+        <!-- Dark Theme TitleBar -->
+        <Grid Focusable="False"  Background="#80000000" VerticalAlignment="Top" Height="225" Margin="0,0,0,225">
+            <w:TitleBar   ThemeStyle="GlassDark" Title="MainWindow" IconSize="32" Icon="Images/MediaClr32.svg"/>
+        </Grid>
+
+        <!-- Light Theme TitleBar -->
+        <Grid Background="#80FFFFFF"  VerticalAlignment="Bottom" Height="225" Margin="0,225,0,0">
+            <w:TitleBar ThemeStyle="GlassLight" Title="MainWindow2" IconSize="16" Icon="Images/car.svg">
+                <w:TitleBar.Buttons>
+                    <w:WindowButtons ThemeStyle="GlassLight" CloseButtonTone="Blue"/>
+                </w:TitleBar.Buttons>
+                <w:TitleBar.Text>
+                    <TextBlock Foreground="Black" Text="MainWindow" Padding="2,0,0,0"/>
+                </w:TitleBar.Text>
+                <w:TitleBar.ImageIcon>
+                    <w:ImageIcon Fill="Black" IconGeometry="{StaticResource MediaIconGeometry}"/>
+                </w:TitleBar.ImageIcon>
+            </w:TitleBar>
+        </Grid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,449 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:l="clr-namespace:WindowChromes">
+
+
+
+    <!--#region  Brushes -->
+
+
+    <!-- Default theme brushes theme Brushes-->
+
+    <l:SolidFrozenBrush Color="Transparent" x:Key="WindowButtonsControlBackground"/>
+
+    <l:SolidFrozenBrush Color="#09000000" x:Key="WindowButtonsBackground"/>
+    <l:SolidFrozenBrush Color="{x:Static SystemColors.ControlTextColor}" x:Key="WindowButtonsForeground"/>
+
+    <l:SolidFrozenBrush Color="#20000000" x:Key="WindowButtonsHoverBackground"/>
+    <l:SolidFrozenBrush Color="{x:Static SystemColors.ControlTextColor}" x:Key="WindowButtonsHoverForeground"/>
+
+    <l:SolidFrozenBrush Color="#30000000" x:Key="WindowButtonsPressedBackground"/>
+    <l:SolidFrozenBrush Color="{x:Static SystemColors.ControlTextColor}" x:Key="WindowButtonsPressedForeground"/>
+
+    <l:SolidFrozenBrush Color="#09000000" x:Key="WindowButtonsInactiveBackground"/>
+    <l:SolidFrozenBrush Color="{x:Static SystemColors.ControlDarkColor}" x:Key="WindowButtonsInactiveForeground"/>
+
+    <!-- Close Button Default Brushes-->
+    <l:SolidFrozenBrush Color="#20000000" x:Key="CloseButtonHoverBackground"/>
+    <l:SolidFrozenBrush Color="{x:Static SystemColors.ControlTextColor}" x:Key="CloseButtonHoverForeground"/>
+
+    <l:SolidFrozenBrush Color="#30000000" x:Key="CloseButtonPressedBackground"/>
+    <l:SolidFrozenBrush Color="{x:Static SystemColors.ControlTextColor}" x:Key="CloseButtonPressedForeground"/>
+
+    <l:SolidFrozenBrush Color="#FFFF1313" x:Key="CloseButtonHoverRedBackground"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonHoverRedForeground"/>
+
+    <l:SolidFrozenBrush Color="#FFFF5050" x:Key="CloseButtonPressedRedBackground"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonPressedRedForeground"/>
+
+    <l:SolidFrozenBrush Color="#FF0292F3" x:Key="CloseButtonPressedBlueBackground"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonPressedBlueForeground"/>
+
+    <l:SolidFrozenBrush Color="#20000000" x:Key="CloseButtonHoverBlueBackground"/>
+    <l:SolidFrozenBrush Color="{x:Static SystemColors.ControlTextColor}" x:Key="CloseButtonHoverBlueForeground"/>
+
+
+
+    <!-- Dark theme Brushes-->
+
+    <l:SolidFrozenBrush Color="#0C000000" x:Key="WindowButtonsControlBackground_Dark"/>
+
+    <l:SolidFrozenBrush Color="#19000000" x:Key="WindowButtonsBackground_Dark"/>
+    <l:SolidFrozenBrush Color="#4CFFFFFF" x:Key="WindowButtonsForeground_Dark"/>
+
+    <l:SolidFrozenBrush Color="#4C000000" x:Key="WindowButtonsHoverBackground_Dark"/>
+    <l:SolidFrozenBrush Color="#FFECECEC" x:Key="WindowButtonsHoverForeground_Dark"/>
+
+    <l:SolidFrozenBrush Color="#7F000000" x:Key="WindowButtonsPressedBackground_Dark"/>
+    <l:SolidFrozenBrush Color="White" x:Key="WindowButtonsPressedForeground_Dark"/>
+
+    <l:SolidFrozenBrush Color="#19000000" x:Key="WindowButtonsInactiveBackground_Dark"/>
+    <l:SolidFrozenBrush Color="#FF515151" x:Key="WindowButtonsInactiveForeground_Dark"/>
+
+    <!-- Close Buttons Dark Brushes-->
+    <l:SolidFrozenBrush Color="#4C000000" x:Key="CloseButtonHoverBackground_Dark"/>
+    <l:SolidFrozenBrush Color="#FFECECEC" x:Key="CloseButtonHoverForeground_Dark"/>
+
+    <l:SolidFrozenBrush Color="#7F000000" x:Key="CloseButtonPressedBackground_Dark"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonPressedForeground_Dark"/>
+
+    <l:SolidFrozenBrush Color="#FFFF5050" x:Key="CloseButtonPressedRedBackground_Dark"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonPressedRedForeground_Dark"/>
+
+    <l:SolidFrozenBrush Color="#FFFF1313" x:Key="CloseButtonHoverRedBackground_Dark"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonHoverRedForeground_Dark"/>
+
+    <l:SolidFrozenBrush Color="#FF0292F3" x:Key="CloseButtonPressedBlueBackground_Dark"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonPressedBlueForeground_Dark"/>
+
+    <l:SolidFrozenBrush Color="#0C000000" x:Key="CloseButtonHoverBlueBackground_Dark"/>
+    <l:SolidFrozenBrush Color="#FFECECEC" x:Key="CloseButtonHoverBlueForeground_Dark"/>
+
+
+    <!-- Light themes Brushes-->
+
+    <l:SolidFrozenBrush Color="#08FFFFFF" x:Key="WindowButtonsControlBackground_Light"/>
+
+    <l:SolidFrozenBrush Color="#0CFFFFFF" x:Key="WindowButtonsBackground_Light"/>
+    <l:SolidFrozenBrush Color="#20000000" x:Key="WindowButtonsHoverBackground_Light"/>
+    <l:SolidFrozenBrush Color="#30000000" x:Key="WindowButtonsPressedBackground_Light"/>
+
+    <l:SolidFrozenBrush Color="#FF343434" x:Key="WindowButtonsForeground_Light"/>
+    <l:SolidFrozenBrush Color="#FF343434" x:Key="WindowButtonsHoverForeground_Light"/>
+    <l:SolidFrozenBrush Color="#FF343434" x:Key="WindowButtonsPressedForeground_Light"/>
+
+    <l:SolidFrozenBrush Color="#CCAEAEAE" x:Key="WindowButtonsInactiveBackground_Light"/>
+    <l:SolidFrozenBrush Color="#FF4F4F4F" x:Key="WindowButtonsInactiveForeground_Light"/>
+
+
+    <!-- Close Buttons Light Brushes-->
+    <l:SolidFrozenBrush Color="#4C000000" x:Key="CloseButtonHoverBackground_Light"/>
+    <l:SolidFrozenBrush Color="#FFECECEC" x:Key="CloseButtonHoverForeground_Light"/>
+
+    <l:SolidFrozenBrush Color="#7F000000" x:Key="CloseButtonPressedBackground_Light"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonPressedForeground_Light"/>
+
+    <l:SolidFrozenBrush Color="#FFFF5050" x:Key="CloseButtonPressedRedBackground_Light"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonPressedRedForeground_Light"/>
+
+    <l:SolidFrozenBrush Color="#FFFF1313" x:Key="CloseButtonHoverRedBackground_Light"/>
+    <l:SolidFrozenBrush Color="#FFECECEC" x:Key="CloseButtonHoverRedForeground_Light"/>
+
+    <l:SolidFrozenBrush Color="#FF0292F3" x:Key="CloseButtonPressedBlueBackground_Light"/>
+    <l:SolidFrozenBrush Color="White" x:Key="CloseButtonPressedBlueForeground_Light"/>
+
+    <l:SolidFrozenBrush Color="#0C000000" x:Key="CloseButtonHoverBlueBackground_Light"/>
+    <l:SolidFrozenBrush Color="#FFECECEC" x:Key="CloseButtonHoverBlueForeground_Light"/>
+
+
+    <!--#endregion-->
+
+
+    <!-- WindowButtons Template -->
+    <ControlTemplate x:Key="WindowButtonsTemplate" TargetType="{x:Type l:WindowButtons}">
+
+        <Grid x:Name="PartMainGrid" 
+                    DataContext="{Binding  RelativeSource={RelativeSource TemplatedParent}}" 
+                    Background="{Binding Background}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+
+                <!-- ButtonBase style -->
+                <Style x:Key="WindowButtonBaseStyle" TargetType="{x:Type ButtonBase}">
+                    <Setter Property="Width" Value="{Binding ButtonsWidth}"/>
+                    <Setter Property="Background" Value="{Binding ButtonsBackground}"/>
+                    <Setter Property="FontFamily" Value="Webdings"/>
+
+                    <Setter Property="FontSize" Value="{Binding SymbolFontSize}" />
+                    <Setter Property="Foreground" Value="{Binding ButtonsForeground}" />
+                    <Setter Property="IsEnabled" Value="True"/>
+
+                        <Setter Property="l:CompositeChrome.IsHitTestVisibleInChrome" Value="True"/>
+
+
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ButtonBase}">
+                                <Border
+                                                            x:Name="Chrome"
+                                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                                            
+                                                            Background="{TemplateBinding Background}"
+                                                            SnapsToDevicePixels="True">
+                                    <ContentPresenter
+                                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                                Content="{TemplateBinding Content}"
+                                                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                Margin="{TemplateBinding Padding}"
+                                                                RecognizesAccessKey="True"
+                                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <Style.Triggers>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{Binding ButtonsInactiveBackground}"/>
+                            <Setter Property="Foreground" Value="{Binding ButtonsInactiveForeground}"/>
+                        </Trigger>
+
+                    </Style.Triggers>
+
+                </Style>
+
+                <!-- Restore buttons Style-->
+                <Style x:Key="WindowButtonStyle" BasedOn="{StaticResource WindowButtonBaseStyle}" TargetType="{x:Type Button}">
+
+                    <Style.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{Binding ButtonsHoverForeground}" />
+                            <Setter Property="Background" Value="{Binding ButtonsHoverBackground}" />
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{Binding ButtonsPressedForeground}" />
+                            <Setter Property="Background" Value="{Binding ButtonsPressedBackground}" />
+                        </Trigger>
+
+                    </Style.Triggers>
+
+                </Style>
+
+                <!-- Close Button style -->
+                <Style x:Key="CloseButtonStyle" BasedOn="{StaticResource WindowButtonBaseStyle}" TargetType="{x:Type Button}">
+
+                    <Style.Triggers>
+
+                        <!-- If Close Button Brushes is Null, we get common Brushes -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{Binding Converter={l:GetCloseButtonForeground HoverMode=Hover} }" />
+                            <Setter Property="Background" Value="{Binding Converter={l:GetCloseButtonBackground HoverMode=Hover}}" />
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{Binding Converter={l:GetCloseButtonForeground HoverMode=Pressed}}" />
+                            <Setter Property="Background" Value="{Binding Converter={l:GetCloseButtonBackground HoverMode=Pressed}}" />
+                        </Trigger>
+
+                    </Style.Triggers>
+                </Style>
+
+            </Grid.Resources>
+
+
+            <Button x:Name="PartMinimizeButton" Grid.Column="0"
+                    Style="{StaticResource WindowButtonStyle}"
+                    Content="0" 
+                    Command="{x:Static l:ButtonCommands.MinimizeCommand}"/>
+
+
+            <Button x:Name="PartRestoreButton" Grid.Column="1" 
+                    Style="{StaticResource WindowButtonStyle}"
+                    Content="1" 
+                    Command="{x:Static l:ButtonCommands.RestoreCommand}"/>
+
+
+            <Button x:Name="PartCloseButton" Grid.Column="2" 
+                    Style="{StaticResource CloseButtonStyle }"
+                    Content="r"
+                    Command="{x:Static l:ButtonCommands.CloseCommand}"/>
+
+
+        </Grid>
+
+
+
+        <ControlTemplate.Triggers>
+
+            <!-- Why access by DataTrigger? It's better for designer. But, of coerce, this is not best implementation-->
+
+            <!-- HorizontalAlignment.Stretch not work, {RelativeSource Self}} is ok -->
+            <DataTrigger Binding="{Binding Path=ButtonsWidth, Converter={l:IsNan}, RelativeSource={RelativeSource Self}}" Value="True">
+                <Setter TargetName="PartMinimizeButton" Property="Width" Value="{l:RatioBinding ActualWidth, Ratio=0.33333, RelativeSource={RelativeSource TemplatedParent}}"/>
+                <Setter TargetName="PartRestoreButton" Property="Width" Value="{l:RatioBinding ActualWidth, Ratio=0.33333, RelativeSource={RelativeSource TemplatedParent}}"/>
+                <Setter TargetName="PartCloseButton" Property="Width" Value="{l:RatioBinding ActualWidth, Ratio=0.33333, RelativeSource={RelativeSource TemplatedParent}}"/>
+            </DataTrigger>
+
+            <!-- Automatically  SymbolFontSize -->
+            <DataTrigger Binding="{Binding Path=SymbolFontSize, Converter={l:IsNan}, RelativeSource={RelativeSource Self}}" Value="True">
+                <Setter TargetName="PartMinimizeButton" Property="FontSize" Value="{l:RatioBinding ActualHeight, Ratio=0.59, RelativeSource={RelativeSource TemplatedParent}}"/>
+                <Setter TargetName="PartRestoreButton" Property="FontSize" Value="{l:RatioBinding ActualHeight, Ratio=0.59, RelativeSource={RelativeSource TemplatedParent}}"/>
+                <Setter TargetName="PartCloseButton" Property="FontSize" Value="{l:RatioBinding ActualHeight, Ratio=0.59, RelativeSource={RelativeSource TemplatedParent}}"/>
+            </DataTrigger>
+            
+            <!-- ResizeMode.NoResize -->
+            <DataTrigger Binding="{Binding Path=ResizeMode, RelativeSource={RelativeSource Self}}" Value="NoResize">
+                <Setter TargetName="PartMinimizeButton" Property="Visibility" Value="Hidden"/>
+                <Setter TargetName="PartRestoreButton" Property="Visibility" Value="Hidden"/>
+            </DataTrigger>
+
+            <!-- ResizeMode.CanMinimize -->
+            <DataTrigger Binding="{Binding Path=ResizeMode, RelativeSource={RelativeSource Self}}" Value="CanMinimize">
+             <Setter TargetName="PartRestoreButton" Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+
+            <!-- WindowState -->
+            <DataTrigger Binding="{Binding Path=WindowState, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Value="Maximized">
+                
+                <Setter TargetName="PartRestoreButton" Property="Content" Value="2"/>
+                
+            </DataTrigger>
+
+
+        </ControlTemplate.Triggers>
+
+
+    </ControlTemplate>
+
+    <!-- WindowButtons Style-->
+    <Style  TargetType="{x:Type l:WindowButtons}">
+
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="Width" Value="99"/>
+        <Setter Property="SymbolFontSize" Value="13"/>
+
+
+        <Setter Property="Background" Value="{StaticResource WindowButtonsControlBackground}"/>
+
+        <Setter Property="ButtonsBackground" Value="{StaticResource WindowButtonsBackground}"/>
+        <Setter Property="ButtonsHoverBackground" Value="{StaticResource WindowButtonsHoverBackground}"/>
+        <Setter Property="ButtonsPressedBackground" Value="{StaticResource WindowButtonsPressedBackground}"/>
+
+        <Setter Property="ButtonsForeground" Value="{StaticResource WindowButtonsForeground}"/>
+        <Setter Property="ButtonsHoverForeground" Value="{StaticResource WindowButtonsHoverForeground}"/>
+        <Setter Property="ButtonsPressedForeground" Value="{StaticResource WindowButtonsPressedForeground}"/>
+
+        <Setter Property="ButtonsInactiveBackground" Value="{StaticResource WindowButtonsInactiveBackground}"/>
+        <Setter Property="ButtonsInactiveForeground" Value="{StaticResource WindowButtonsInactiveForeground}"/>
+
+        <Setter Property="CloseButtonTone" Value="Red"/>
+
+        <Setter Property="ResizeMode" Value="{Binding ResizeMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
+        
+        <Setter Property="Template" Value="{StaticResource WindowButtonsTemplate}"/>
+
+
+        
+        <Style.Triggers>
+
+
+                <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="ThemeStyle" Value="Default"/>
+                    <Condition Property="CloseButtonTone" Value="Red"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="CloseButtonHoverBackground" Value="{StaticResource CloseButtonHoverRedBackground}"/>
+                <Setter Property="CloseButtonPressedBackground" Value="{StaticResource CloseButtonPressedRedBackground}"/>
+
+                <Setter Property="CloseButtonHoverForeground" Value="{StaticResource CloseButtonHoverRedForeground}"/>
+                <Setter Property="CloseButtonPressedForeground" Value="{StaticResource CloseButtonPressedRedForeground}"/>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="ThemeStyle" Value="Default"/>
+                    <Condition Property="CloseButtonTone" Value="Blue"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="CloseButtonHoverBackground" Value="{StaticResource CloseButtonHoverBlueBackground}"/>
+                <Setter Property="CloseButtonPressedBackground" Value="{StaticResource CloseButtonPressedBlueBackground}"/>
+
+                <Setter Property="CloseButtonHoverForeground" Value="{StaticResource CloseButtonHoverBlueForeground}"/>
+                <Setter Property="CloseButtonPressedForeground" Value="{StaticResource CloseButtonPressedBlueForeground}"/>
+            </MultiTrigger>
+
+            <Trigger Property="ThemeStyle" Value="GlassDark">
+
+                <Setter Property="Background" Value="{StaticResource WindowButtonsControlBackground_Dark}"/>
+
+                <Setter Property="ButtonsForeground" Value="{StaticResource WindowButtonsForeground_Dark}"/>
+                <Setter Property="ButtonsHoverForeground" Value="{StaticResource WindowButtonsHoverForeground_Dark}"/>
+                <Setter Property="ButtonsPressedForeground" Value="{StaticResource WindowButtonsPressedForeground_Dark}"/>
+
+                <Setter Property="ButtonsBackground" Value="{StaticResource WindowButtonsBackground_Dark}"/>
+                <Setter Property="ButtonsHoverBackground" Value="{StaticResource WindowButtonsHoverBackground_Dark}"/>
+                <Setter Property="ButtonsPressedBackground" Value="{StaticResource WindowButtonsPressedBackground_Dark}"/>
+
+                <Setter Property="ButtonsInactiveBackground" Value="{StaticResource WindowButtonsInactiveBackground_Dark}"/>
+                <Setter Property="ButtonsInactiveForeground" Value="{StaticResource WindowButtonsInactiveForeground_Dark}"/>
+
+
+                <Setter Property="CloseButtonHoverBackground" Value="{StaticResource CloseButtonHoverBackground_Dark}"/>
+                <Setter Property="CloseButtonHoverForeground" Value="{StaticResource CloseButtonHoverForeground_Dark}"/>
+
+                <Setter Property="CloseButtonPressedBackground" Value="{StaticResource CloseButtonPressedBackground_Dark}"/>
+                <Setter Property="CloseButtonPressedForeground" Value="{StaticResource CloseButtonPressedForeground_Dark}"/>
+
+            </Trigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="ThemeStyle" Value="GlassDark"/>
+                    <Condition Property="CloseButtonTone" Value="Red"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="CloseButtonHoverBackground" Value="{StaticResource CloseButtonHoverRedBackground_Dark}"/>
+                <Setter Property="CloseButtonPressedBackground" Value="{StaticResource CloseButtonPressedRedBackground_Dark}"/>
+
+                <Setter Property="CloseButtonHoverForeground" Value="{StaticResource CloseButtonHoverRedForeground_Dark}"/>
+                <Setter Property="CloseButtonPressedForeground" Value="{StaticResource CloseButtonPressedRedForeground_Dark}"/>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="ThemeStyle" Value="GlassDark"/>
+                    <Condition Property="CloseButtonTone" Value="Blue"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="CloseButtonHoverBackground" Value="{StaticResource CloseButtonHoverBlueBackground_Dark}"/>
+                <Setter Property="CloseButtonPressedBackground" Value="{StaticResource CloseButtonPressedBlueBackground_Dark}"/>
+
+                <Setter Property="CloseButtonHoverForeground" Value="{StaticResource CloseButtonHoverBlueForeground_Dark}"/>
+                <Setter Property="CloseButtonPressedForeground" Value="{StaticResource CloseButtonPressedBlueForeground_Dark}"/>
+            </MultiTrigger>
+
+
+            <Trigger Property="ThemeStyle"  Value="GlassLight">
+
+                <Setter Property="Background" Value="{StaticResource WindowButtonsControlBackground_Light}"/>
+
+                <Setter Property="ButtonsForeground" Value="{StaticResource WindowButtonsForeground_Light}"/>
+                <Setter Property="ButtonsHoverForeground" Value="{StaticResource WindowButtonsHoverForeground_Light}"/>
+                <Setter Property="ButtonsPressedForeground" Value="{StaticResource WindowButtonsPressedForeground_Light}"/>
+
+                <Setter Property="ButtonsBackground" Value="{StaticResource WindowButtonsBackground_Light}"/>
+                <Setter Property="ButtonsHoverBackground" Value="{StaticResource WindowButtonsHoverBackground_Light}"/>
+                <Setter Property="ButtonsPressedBackground" Value="{StaticResource WindowButtonsPressedBackground_Light}"/>
+
+                <Setter Property="ButtonsInactiveBackground" Value="{StaticResource WindowButtonsInactiveBackground_Light}"/>
+                <Setter Property="ButtonsInactiveForeground" Value="{StaticResource WindowButtonsInactiveForeground_Light}"/>
+
+
+                <Setter Property="CloseButtonHoverBackground" Value="{StaticResource CloseButtonHoverBackground_Light}"/>
+                <Setter Property="CloseButtonHoverForeground" Value="{StaticResource CloseButtonHoverForeground_Light}"/>
+
+                <Setter Property="CloseButtonPressedBackground" Value="{StaticResource CloseButtonPressedBackground_Light}"/>
+                <Setter Property="CloseButtonPressedForeground" Value="{StaticResource CloseButtonPressedForeground_Light}"/>
+
+            </Trigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="ThemeStyle" Value="GlassLight"/>
+                    <Condition Property="CloseButtonTone" Value="Red"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="CloseButtonHoverBackground" Value="{StaticResource CloseButtonHoverRedBackground_Light}"/>
+                <Setter Property="CloseButtonPressedBackground" Value="{StaticResource CloseButtonPressedRedBackground_Light}"/>
+
+                <Setter Property="CloseButtonHoverForeground" Value="{StaticResource CloseButtonHoverRedForeground_Light}"/>
+                <Setter Property="CloseButtonPressedForeground" Value="{StaticResource CloseButtonPressedRedForeground_Light}"/>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="ThemeStyle" Value="GlassLight"/>
+                    <Condition Property="CloseButtonTone" Value="Blue"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="CloseButtonHoverBackground" Value="{StaticResource CloseButtonHoverBlueBackground_Light}"/>
+                <Setter Property="CloseButtonPressedBackground" Value="{StaticResource CloseButtonPressedBlueBackground_Light}"/>
+
+                <Setter Property="CloseButtonHoverForeground" Value="{StaticResource CloseButtonHoverBlueForeground_Light}"/>
+                <Setter Property="CloseButtonPressedForeground" Value="{StaticResource CloseButtonPressedBlueForeground_Light}"/>
+            </MultiTrigger>
+
+        </Style.Triggers>
+
+
+    </Style>
+
+
+
+</ResourceDictionary>
