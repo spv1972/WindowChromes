@@ -12,12 +12,9 @@ namespace WindowChromes
     /// </summary>
     public abstract class WindowButtonsBase : Control
     {
-
         private static readonly Type OwnerType = typeof(WindowButtonsBase);
 
-
         #region Depencincy properties
-
 
         #region ThemeStyle
 
@@ -56,7 +53,6 @@ namespace WindowChromes
         }
         #endregion
 
-
         #region ButtonsHoverBackground
         public static DependencyProperty ButtonsHoverBackgroundProperty =
             DependencyProperty.Register("ButtonsHoverBackground", typeof(Brush), OwnerType);
@@ -78,7 +74,6 @@ namespace WindowChromes
             set => SetValue(ButtonsHoverForegroundProperty, value);
         }
         #endregion
-
 
         #region ButtonsPressedForeground
         public static DependencyProperty ButtonsPressedForegroundProperty =
@@ -102,7 +97,6 @@ namespace WindowChromes
         }
         #endregion
 
-
         #region ButtonsInactiveBackground
         public static DependencyProperty ButtonsInactiveBackgroundProperty =
             DependencyProperty.Register("ButtonsInactiveBackground", typeof(Brush), OwnerType);
@@ -125,10 +119,7 @@ namespace WindowChromes
         }
         #endregion
 
-
-
-        #region Close Buttton separately
-
+        
         #region CloseButtonHoverBackground
         public static DependencyProperty CloseButtonHoverBackgroundProperty =
             DependencyProperty.Register("CloseButtonHoverBackground", typeof(Brush), OwnerType);
@@ -173,7 +164,6 @@ namespace WindowChromes
         }
         #endregion
 
-
         #region CloseButtonTone
         public static DependencyProperty CloseButtonToneProperty =
             DependencyProperty.Register("CloseButtonTone", typeof(CloseButtonTone), OwnerType);
@@ -184,11 +174,6 @@ namespace WindowChromes
             set => SetValue(CloseButtonToneProperty, value);
         }
         #endregion
-
-        #endregion
-
-
-
 
         #region ButtonsWidth
         [TypeConverter(typeof(LengthConverter))]
@@ -202,7 +187,6 @@ namespace WindowChromes
             get => (double)GetValue(ButtonsWidthProperty);
             set => SetValue(ButtonsWidthProperty, value);
         }
-
         #endregion
 
         #region SymbolFontSize
@@ -217,15 +201,11 @@ namespace WindowChromes
             get => (double)GetValue(SymbolFontSizeProperty);
             set => SetValue(SymbolFontSizeProperty, value);
         }
-
         #endregion
 
         #region RealHeight
-
         public double RealHeight => !double.IsNaN(Height) ? Height : ActualHeight;
-
         #endregion
-
 
         #region CloseButtonTone
         public static DependencyProperty ResizeModeProperty =
@@ -238,9 +218,7 @@ namespace WindowChromes
         }
         #endregion
 
-
         #endregion
-
        
     }
 }

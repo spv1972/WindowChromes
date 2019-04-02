@@ -5,8 +5,6 @@ using System.Windows.Interop;
 
 namespace WindowChromes
 {
-
-
     /// <inheritdoc />
     /// <summary>
     ///  Sets Blur effect with Acrylic Colors on Window.
@@ -14,7 +12,6 @@ namespace WindowChromes
     public class AcrylicChrome : CompositeChrome
     {
         private static readonly Type OwnerType = typeof(AcrylicChrome);
-
      
         #region Attached property AcrylicChrome
         [DefaultValue("Null")]
@@ -37,8 +34,6 @@ namespace WindowChromes
             obj.SetValue(AcrylicChromeProperty, value);
         }
 
-
-
         public static object AcrylicChromeCoerceValue(DependencyObject d, object baseValue)
         {
 
@@ -60,8 +55,6 @@ namespace WindowChromes
             }
             return baseValue;
         }
-
-
 
         [AttachedPropertyBrowsableForType(typeof(Window))]
         private static void AcrylicChromePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -98,17 +91,9 @@ namespace WindowChromes
             {
                 if (!ch.IsInitialized)
                     WindowLoadedHandler.Invoke(window, null);
-
             }
-
-
         }
-
-
         #endregion
-
-
-
 
         /// <summary>
         /// Window Loaded handler
@@ -124,22 +109,18 @@ namespace WindowChromes
             ch.OwnerWindow = w;
             ch.HWndSource = (HwndSource)PresentationSource.FromVisual(w);
 
-
             var blurDesc =
                 DependencyPropertyDescriptor.FromProperty(IsBlurredProperty, typeof(AcrylicChrome));
             blurDesc.RemoveValueChanged(w, IsBlurredPropertyChanged);
             blurDesc.AddValueChanged(w, IsBlurredPropertyChanged);
-
 
             var isBlur = (bool)(w.GetValue(IsBlurredProperty)) || (bool)(ch.GetValue(IsBlurredProperty));
 
             if (!isBlur) ch.DisableBlur();
             else ch.EnableBlur();
 
-
             w.Loaded -= WindowLoadedHandler;
         };
-
 
         /// <summary>
         /// PropertyChanged Callback for Windows object
@@ -166,9 +147,6 @@ namespace WindowChromes
             }
         }
 
-
-
-
         /// <inheritdoc />
         /// <summary>
         /// Sets blur effect to current window
@@ -188,14 +166,12 @@ namespace WindowChromes
             }
         }
 
-
         /// <inheritdoc />
         /// <summary>
         /// Turns off Blur effect, sets undderstratum color
         /// </summary>
         public override void DisableBlur()
         {
-
 
             var hWnd = HWndSource.Handle;
 
@@ -207,12 +183,8 @@ namespace WindowChromes
                 {
                     VistaGlassBlurrier.DisableBlurFrame(hWnd);
                 }
-
             }
         }
-
-
-
 
     }
 }

@@ -15,7 +15,6 @@ namespace WindowChromes
     internal static class NativeMethods
     {
 
-
         /// <summary>
         /// Using for blurred, and acrylic window 
         /// </summary>
@@ -29,72 +28,55 @@ namespace WindowChromes
         [DllImport("user32.dll", EntryPoint = "SetWindowCompositionAttribute")]
         private static extern int _SetWindowCompositionAttribute(IntPtr hWnd, ref WindowCompositionAttributeData data);
 
-
         [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("user32.dll", EntryPoint = "GetWindowLong", SetLastError = true)]
         private static extern int _GetWindowLong32(IntPtr hWnd, GWL nIndex);
-
 
         [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("user32.dll", EntryPoint = "GetWindowLongPtr", SetLastError = true)]
         private static extern IntPtr _GetWindowLongPtr64(IntPtr hWnd, GWL nIndex);
 
-
         [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("user32.dll", EntryPoint = "SetWindowLong", SetLastError = true)]
         private static extern int _SetWindowLong32(IntPtr hWnd, GWL nIndex, int dwNewLong);
-
 
         [SuppressMessage("Microsoft.Interoperability", "CA1400:PInvokeEntryPointsShouldExist")]
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("user32.dll", EntryPoint = "SetWindowLongPtr", SetLastError = true)]
         private static extern IntPtr _SetWindowLongPtr64(IntPtr hWnd, GWL nIndex, IntPtr dwNewLong);
 
-
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("user32.dll", EntryPoint = "GetWindowRect", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool _GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
-       
-
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("dwmapi.dll", PreserveSig = false)]
         public static extern void DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
-
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("dwmapi.dll", PreserveSig = false)]
         public static extern bool DwmIsCompositionEnabled();
 
-
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("dwmapi.dll", EntryPoint = "DwmSetWindowAttribute")]
         private static extern void _DwmSetWindowAttribute(IntPtr hWnd, DWMWA dwAttribute, ref int pvAttribute, int cbAttribute);
 
-
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("user32.dll", CharSet = CharSet.Unicode, EntryPoint = "DefWindowProcW")]
         public static extern IntPtr DefWindowProc(IntPtr hWnd, WM Msg, IntPtr wParam, IntPtr lParam);
-
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("user32.dll", EntryPoint = "PostMessage", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool _PostMessage(IntPtr hWnd, WM Msg, IntPtr wParam, IntPtr lParam);
 
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport("user32.dll")]
         public static extern IntPtr GetSystemMenu(IntPtr hWnd, [MarshalAs(UnmanagedType.Bool)] bool bRevert);
-
 
         // This function returns a BOOL if TPM_RETURNCMD isn't specified, but otherwise the command Id.
         // Currently it's only used with TPM_RETURNCMD, so making the signature match that.
@@ -111,14 +93,11 @@ namespace WindowChromes
             }
         }
 
-
         internal static void VistaDisableBlurFrame(IntPtr hwnd)
         {
             var policyParameter = (int) DWMNCRP.DISABLED;
             _DwmSetWindowAttribute(hwnd, DWMWA.NCRENDERING_POLICY, ref policyParameter, sizeof(int));
         }
-
-
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static IntPtr GetWindowLongPtr(IntPtr hWnd, GWL nIndex)
@@ -134,7 +113,6 @@ namespace WindowChromes
             return res;
         }
 
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static IntPtr SetWindowLongPtr(IntPtr hWnd, GWL nIndex, IntPtr dwNewLong)
         {
@@ -143,13 +121,11 @@ namespace WindowChromes
                     : new IntPtr(_SetWindowLong32(hWnd, nIndex, dwNewLong.ToInt32()));
         }
 
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal static IntPtr GetWindowStyle(IntPtr hWnd)
         {
             return GetWindowLongPtr(hWnd, GWL.STYLE);
         }
-
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal static void RemoveTitleBar(IntPtr hWnd)
@@ -162,13 +138,11 @@ namespace WindowChromes
             SetWindowLongPtr(hWnd, GWL.STYLE, new IntPtr(lCurStyle));
         }
 
-
         internal static void SetInvisibleNonClientArea(IntPtr hWnd)
         {
              SetWindowLongPtr(hWnd, GWL.STYLE, new IntPtr((int)WS.VISIBLE));
              SetWindowLongPtr(hWnd, GWL.STYLE,  new IntPtr((int)WS_EX.MDICHILD));
         }
-
 
         internal static void ShowSystemMenuPhysicalCoordinates(IntPtr hWnd, Point physicalScreenLocation)
         {
@@ -188,7 +162,6 @@ namespace WindowChromes
                 PostMessage(hWnd, WM.SYSCOMMAND, new IntPtr(cmd), IntPtr.Zero);
             }
         }
-
 
         internal static void SetAccentPolicy(IntPtr hWnd, AccentState accentState, AccentFlags accentFlags, uint gradientColor)
         {
@@ -258,9 +231,6 @@ namespace WindowChromes
             }
             return rc;
         }
-
-
-
 
     }
 }

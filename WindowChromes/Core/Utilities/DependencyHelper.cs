@@ -3,7 +3,10 @@ using System.Windows.Media;
 
 namespace WindowChromes
 {
-   internal static  class DependencyHelper
+    /// <summary>
+    /// Extensions for DependencyObject type
+    /// </summary>
+    internal static  class DependencyHelper
     {
         /// <summary>
         /// Finds a parent of a given control/item on the visual tree. 

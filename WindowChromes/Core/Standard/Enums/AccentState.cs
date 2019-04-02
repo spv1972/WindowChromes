@@ -13,9 +13,7 @@
         ACCENT_INVALID_STATE = 5
     }
 
-
     /* Obsolete
-
      internal enum AccentState
      {
          ACCENT_DISABLED = 0,

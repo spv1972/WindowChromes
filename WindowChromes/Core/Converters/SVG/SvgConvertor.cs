@@ -8,6 +8,9 @@ using SharpVectors.Renderers.Wpf;
 
 namespace WindowChromes
 {
+    /// <summary>
+    /// Convert SVG image to DrawingGroup
+    /// </summary>
     public class SvgConvertor
     {
         public static DrawingGroup SvgFileToWpfObject(string filepath)

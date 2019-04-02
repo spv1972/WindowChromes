@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WindowChromes
 {
@@ -6,6 +7,7 @@ namespace WindowChromes
     /// WindowStyle values, WS_*
     /// </summary>
     [Flags]
+    [SuppressMessage("ReSharper", "IdentifierTypo")]
     internal enum WS : uint
     {
         OVERLAPPED = 0x00000000,

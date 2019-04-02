@@ -11,7 +11,6 @@ namespace WindowChromes
     /// </summary>
     public abstract class CompositeChrome : Freezable
     {
-
         private static readonly Type OwnerType = typeof(CompositeChrome);
 
         /// <summary>
@@ -26,14 +25,10 @@ namespace WindowChromes
 
         public bool IsInitialized { set; get; }
 
-
         protected uint gbrColor = (uint)UsingColors.Transparent;
 
 
-
-
         #region Attached property IsHitTestVisibleInChrome
-
         public static readonly DependencyProperty IsHitTestVisibleInChromeProperty = DependencyProperty.RegisterAttached(
             "IsHitTestVisibleInChrome",
             typeof(bool),
@@ -61,11 +56,9 @@ namespace WindowChromes
             }
             obj.SetValue(IsHitTestVisibleInChromeProperty, hitTestVisible);
         }
-
         #endregion
 
         #region Attached property IsBlurred
-
         public static readonly DependencyProperty IsBlurredProperty =
             DependencyProperty.RegisterAttached(
                 "IsBlurred",
@@ -103,14 +96,10 @@ namespace WindowChromes
                 ch.DisableBlur();
             }
         }
-
         #endregion
 
 
-
-
         #region DependencyProperty ResizeBorderThickness
-
         public static readonly DependencyProperty ResizeBorderThicknessProperty = DependencyProperty.Register(
             "ResizeBorderThickness",
             typeof(Thickness),
@@ -123,7 +112,6 @@ namespace WindowChromes
             get { return (Thickness)GetValue(ResizeBorderThicknessProperty); }
             set { SetValue(ResizeBorderThicknessProperty, value); }
         }
-
         #endregion
 
         #region DependencyProperty CaptionHeight
@@ -140,14 +128,9 @@ namespace WindowChromes
             get => (double)GetValue(CaptionHeightProperty);
             set => SetValue(CaptionHeightProperty, value);
         }
-
         #endregion
 
-
-      
-
         #region DependencyProperty AllowStartUpFrozen
-
         public static DependencyProperty AllowStartUpFrozenProperty =
             DependencyProperty.Register("AllowStartUpFrozen", typeof(bool), OwnerType,
                 new FrameworkPropertyMetadata(false));
@@ -158,15 +141,9 @@ namespace WindowChromes
             get => (bool)GetValue(AllowStartUpFrozenProperty);
             set => SetValue(AllowStartUpFrozenProperty, value);
         }
-
-
         #endregion
 
-
-
-
         #region DependencyProperty UnderStratumColor
-
         public static DependencyProperty UnderStratumColorProperty =
             DependencyProperty.Register("UnderStratumColor", typeof(object), OwnerType,
                 new PropertyMetadata(ColorFrom.BlackOpacity, UnderStratumColorPropertyChangedCallback, UnderStratumColorPropertyCoerceValueCallback));
@@ -185,13 +162,11 @@ namespace WindowChromes
                 : ColorFrom.Object(baseValue);
         }
 
-
         public object UnderStratumColor
         {
             get => GetValue(UnderStratumColorProperty);
             set => SetValue(UnderStratumColorProperty, value);
         }
-
 
         public static void UnderStratumColorPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -215,17 +190,12 @@ namespace WindowChromes
                 else ch.EnableBlur();
             
         }
-
-
         #endregion
 
-
         #region DependencyProperty RgbChannelProperty
-
         public static DependencyProperty RgbChannelProperty =
             DependencyProperty.Register("RgbChannel", typeof(object), OwnerType,
                 new PropertyMetadata("Black", RgbChannelPropertyChangedCallback, RgbChannelPropertyCoerceValueCallback));
-
 
         private static object RgbChannelPropertyCoerceValueCallback(DependencyObject d, object baseValue)
         {
@@ -234,13 +204,11 @@ namespace WindowChromes
                 : ColorFrom.Object(baseValue);
         }
 
-
         public object RgbChannel
         {
             get => GetValue(RgbChannelProperty);
             set => SetValue(RgbChannelProperty, value);
         }
-
 
         public static void RgbChannelPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -251,27 +219,19 @@ namespace WindowChromes
 
             if (!ch.UnderStratumColor.IsEqual(colorValue))
                 ch.UnderStratumColor = colorValue;
-
         }
-
-
         #endregion
 
-
         #region DependencyProperty DependencyOpacity
-
         public static DependencyProperty DependencyOpacityProperty =
             DependencyProperty.Register("DependencyOpacity", typeof(byte), OwnerType,
                 new PropertyMetadata((byte)0, UnderStratumOpacityPropertyChangedCallback));
-
-
 
         public byte DependencyOpacity
         {
             get => (byte)GetValue(DependencyOpacityProperty);
             set => SetValue(DependencyOpacityProperty, value);
         }
-
 
         public static void UnderStratumOpacityPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -286,15 +246,12 @@ namespace WindowChromes
             ch.UnderStratumColor = color;
 
         }
-
-
         #endregion
-
 
 
         /// <inheritdoc />
         /// <summary>
-        /// Freezable base implementation
+        /// Freezable base method implementation
         /// </summary>
         /// <returns></returns>
         protected override Freezable CreateInstanceCore()
@@ -302,28 +259,15 @@ namespace WindowChromes
             return (Freezable) Activator.CreateInstance(GetType());
         }
 
-
-
-
         /// <summary>
         /// Sets blur effect to current window
         /// </summary>
-        public virtual void EnableBlur()
-        {
-
-        }
-
+        public virtual void EnableBlur() { }
 
         /// <summary>
         /// Turns off Blur effect, sets undderstratum color
         /// </summary>
-        public virtual void DisableBlur()
-        {
-        }
-
+        public virtual void DisableBlur() {}
 
     }
-
-
-
 }

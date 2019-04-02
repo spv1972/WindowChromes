@@ -1,8 +1,11 @@
-﻿namespace WindowChromes
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace WindowChromes
 {
     /// <summary>
     /// GetWindowLongPtr values, GWL_*
     /// </summary>
+    [SuppressMessage("ReSharper", "IdentifierTypo")]
     internal enum GWL
     {
         WNDPROC = (-4),

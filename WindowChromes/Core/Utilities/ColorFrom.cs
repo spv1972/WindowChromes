@@ -5,7 +5,7 @@ using System.Windows.Media;
 namespace WindowChromes
 {
     /// <summary>
-    /// Extension for Color Type
+    /// Extensions for Color Type
     /// </summary>
     [SuppressMessage("ReSharper", "IdentifierTypo")]
     internal static class ColorFrom

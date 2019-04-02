@@ -118,7 +118,6 @@
 
     <!--#endregion-->
 
-
     <!-- WindowButtons Template -->
     <ControlTemplate x:Key="WindowButtonsTemplate" TargetType="{x:Type l:WindowButtons}">
 
@@ -246,8 +245,6 @@
 
         <ControlTemplate.Triggers>
 
-            <!-- Why access by DataTrigger? It's better for designer. But, of coerce, this is not best implementation-->
-
             <!-- HorizontalAlignment.Stretch not work, {RelativeSource Self}} is ok -->
             <DataTrigger Binding="{Binding Path=ButtonsWidth, Converter={l:IsNan}, RelativeSource={RelativeSource Self}}" Value="True">
                 <Setter TargetName="PartMinimizeButton" Property="Width" Value="{l:RatioBinding ActualWidth, Ratio=0.33333, RelativeSource={RelativeSource TemplatedParent}}"/>
@@ -280,9 +277,7 @@
                 
             </DataTrigger>
 
-
         </ControlTemplate.Triggers>
-
 
     </ControlTemplate>
 
@@ -292,7 +287,6 @@
         <Setter Property="Height" Value="22"/>
         <Setter Property="Width" Value="99"/>
         <Setter Property="SymbolFontSize" Value="13"/>
-
 
         <Setter Property="Background" Value="{StaticResource WindowButtonsControlBackground}"/>
 
@@ -312,8 +306,6 @@
         <Setter Property="ResizeMode" Value="{Binding ResizeMode, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
         
         <Setter Property="Template" Value="{StaticResource WindowButtonsTemplate}"/>
-
-
         
         <Style.Triggers>
 
@@ -441,9 +433,6 @@
 
         </Style.Triggers>
 
-
     </Style>
-
-
 
 </ResourceDictionary>

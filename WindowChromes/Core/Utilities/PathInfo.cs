@@ -21,9 +21,6 @@ namespace WindowChromes
             var components = items[1].Split('/').Where(c => c != "component").ToArray();
 
             return Path.Combine(components);
-
         }
-
-
     }
 }

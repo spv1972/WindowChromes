@@ -6,14 +6,16 @@ using System.Windows.Media;
 
 namespace WindowChromes
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// Title bar with Icon, Title and WindowButtons
+    /// Icon may be SVG source
+    /// </summary>
     public class TitleBar : Control
     {
-
         private static readonly Type OwnerType = typeof(TitleBar);
 
-
         #region Attached property IsTransparent
-
         /// <summary>
         /// Attached types is Window and TitleBar, that setting in xaml
         /// </summary>
@@ -24,18 +26,15 @@ namespace WindowChromes
                 OwnerType,
                 new FrameworkPropertyMetadata(false, OnlyClosedModePropertyChangedCallback));
 
-
         public static bool GetIsTransparent(DependencyObject obj)
         {
             return (bool)obj.GetValue(IsTransparentProperty);
         }
 
-
         public static void SetIsTransparent(DependencyObject obj, TitleBar value)
         {
             obj.SetValue(IsTransparentProperty, value);
         }
-
 
         private static void OnlyClosedModePropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -49,14 +48,9 @@ namespace WindowChromes
             buttons.Background = Brushes.Transparent;
             buttons.ButtonsBackground = Brushes.Transparent;
         }
-
-
-
         #endregion
 
-
         #region Attached property Icon
-
         /// <summary>
         /// Attached types is Window and TitleBar, that setting in xaml
         /// </summary>
@@ -67,23 +61,18 @@ namespace WindowChromes
                 typeof(Uri),
                 OwnerType);
 
-
         public static Uri GetIcon(DependencyObject obj)
         {
             return (Uri)obj.GetValue(IconProperty);
         }
 
-
         public static void SetIcon(DependencyObject obj, Uri value)
         {
             obj.SetValue(IconProperty, value);
         }
-
-
         #endregion
 
         #region Attached property Title
-
         /// <summary>
         /// Attached types is Window and TitleBar, that setting in xaml
         /// </summary>
@@ -93,37 +82,26 @@ namespace WindowChromes
                 typeof(string),
                 OwnerType);
 
-
         public static string GetTitle(DependencyObject obj)
         {
             return (string)obj.GetValue(TitleProperty);
         }
 
-
         public static void SetTitle(DependencyObject obj, string value)
         {
             obj.SetValue(TitleProperty, value);
         }
-        
-
-
         #endregion
 
-       
-
-
         #region Dependency property ThemeStyle
-
         public static DependencyProperty ThemeStyleProperty =
             DependencyProperty.Register("ThemeStyle", typeof(ThemeStyle), OwnerType, new PropertyMetadata(ThemeStyle.Default));
-
 
         public ThemeStyle ThemeStyle
         {
             get => (ThemeStyle)GetValue(ThemeStyleProperty);
             set => SetValue(ThemeStyleProperty, value);
         }
-
         #endregion
 
         #region Dependency property IconSize
@@ -135,10 +113,7 @@ namespace WindowChromes
             get => (double)GetValue(IconSizeProperty);
             set => SetValue(IconSizeProperty, value);
         }
-
-
         #endregion
-
 
         public object Buttons { set; get; }
 
@@ -146,14 +121,11 @@ namespace WindowChromes
 
         public object ImageIcon { set; get; }
 
-
         #region constructors
-
         static TitleBar()
         {
             DefaultStyleKeyProperty.OverrideMetadata(OwnerType, new FrameworkPropertyMetadata(OwnerType));
         }
-
 
         public TitleBar()
         {
@@ -191,7 +163,6 @@ namespace WindowChromes
 
         public override void OnApplyTemplate()
         {
-
             base.OnApplyTemplate();
 
             //edit IconSize
@@ -208,8 +179,6 @@ namespace WindowChromes
             var top = (this.RealHeight() - IconSize) / 2;
             if (top < 3) top = 3;
             Canvas.SetTop(image, top);
-            
-
         }
     }
 }

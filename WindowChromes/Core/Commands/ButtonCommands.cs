@@ -60,6 +60,5 @@ namespace WindowChromes
         }
 
         #endregion
-
     }
 }

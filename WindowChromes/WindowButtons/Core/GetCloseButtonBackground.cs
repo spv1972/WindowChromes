@@ -29,7 +29,6 @@ namespace WindowChromes
                 return pr ?? d.GetValue(WindowButtons.ButtonsHoverBackgroundProperty);
             }
 
-
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -2,6 +2,7 @@
 
 namespace WindowChromes
 {
+    /// <inheritdoc/>
     /// <summary>
     /// Binding with AddConverter
     /// </summary>
@@ -30,6 +31,5 @@ namespace WindowChromes
             }
             get => _addend;
         }
-
     }
 }

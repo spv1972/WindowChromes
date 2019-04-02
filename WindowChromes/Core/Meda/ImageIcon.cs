@@ -15,10 +15,8 @@ namespace WindowChromes
     {
         private static readonly Type OwnerType = typeof(ImageIcon);
 
-
         //may be .png, ,jpeg ..  or .svg file type
         #region Dependency property Icon
-
         public static DependencyProperty IconProperty =
             DependencyProperty.Register("Icon", typeof(Uri), OwnerType, new PropertyMetadata(null, IconPropertyChanged));
 
@@ -79,7 +77,6 @@ namespace WindowChromes
             ic.Source = im;
 
         }
-
         #endregion
 
         #region Dependency property Pen
@@ -105,7 +102,6 @@ namespace WindowChromes
         #endregion
 
         #region Dependency property IconGeometry
-
         public static DependencyProperty IconGeometryProperty =
             DependencyProperty.Register("IconGeometry", typeof(Geometry), OwnerType, new PropertyMetadata(null, IconGeometryPropertyChanged));
 
@@ -128,14 +124,10 @@ namespace WindowChromes
             };
             var im = new DrawingImage() { Drawing = dr };
             ic.Source = im;
-
-
-
         }
         #endregion
 
         #region Dependency property IconPath
-
         public static DependencyProperty IconPathProperty =
             DependencyProperty.Register("IconPath", typeof(System.Windows.Shapes.Path), OwnerType, new PropertyMetadata(null, IconPathPropertyChanged));
 
@@ -159,9 +151,7 @@ namespace WindowChromes
 
             var im = new DrawingImage() { Drawing = dr };
             ic.Source = im;
-
         }
-
         #endregion
 
         #region Dependency property AllowOutRender

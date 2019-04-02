@@ -41,6 +41,6 @@ namespace WindowChromes
 
             return dv / dp;
         }
-    }
 
+    }
 }

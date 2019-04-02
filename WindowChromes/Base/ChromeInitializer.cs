@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
-using System.Security;
-using System.Security.Permissions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
@@ -11,6 +9,10 @@ using System.Windows.Media;
 
 namespace WindowChromes
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// Initialize Window HWndSource by Hook WndProc method
+    /// </summary>
     internal class ChromeInitializer : DependencyObject
     {
         private static readonly Type OwnerType = typeof(ChromeInitializer);
@@ -20,22 +22,14 @@ namespace WindowChromes
         internal Dictionary<WM, WindowMessageHandler> _messageDictionary = new Dictionary<WM, WindowMessageHandler>() ;
 
         /// <summary>
-        /// current Window 
+        /// current Window instance
         /// </summary>
         private Window _window;
 
-        /// <summary>Underlying HWND for the _window.</summary>
-        /// <SecurityNote>
-        ///   Critical : Critical member provides access to HWND's window messages which are critical
-        /// </SecurityNote>
-        [SecurityCritical]
+        /// <summary>Underlying HWndSource for the _window.</summary>
         private HwndSource _source;
 
-        /// <summary>Underlying HWND for the _window.</summary>
-        /// <SecurityNote>
-        ///   Critical : Critical member
-        /// </SecurityNote>
-        [SecurityCritical]
+        /// <summary>Underlying HWnd for the _window.</summary>
         private IntPtr _hWnd;
 
         /// <summary>
@@ -45,6 +39,9 @@ namespace WindowChromes
 
         private CompositeChrome _chromeBase;
 
+        /// <summary>
+        ///Current Window Chrome
+        /// </summary>
         public CompositeChrome ChromeBase
         {
             set
@@ -58,8 +55,6 @@ namespace WindowChromes
             }
             get => _chromeBase;
         }
-
-
 
         #region Attached property AeroGlassChrome
 
@@ -82,11 +77,6 @@ namespace WindowChromes
         {
             obj.SetValue(ChromeInitializerProperty, value);
         }
-
-
-
-       
-
 
         [AttachedPropertyBrowsableForType(typeof(Window))]
         private static void ChromeInitializerPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -128,14 +118,8 @@ namespace WindowChromes
 
         #endregion
 
-
-        /// <inheritdoc />
-        /// <SecurityNote>
-        ///   Critical : Store critical methods in critical callback table
-        ///   Safe     : Demands full trust permissions
-        /// </SecurityNote>
-        [SecuritySafeCritical]
-        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
+       
+        // constructor
         public ChromeInitializer()
         {
             _messageDictionary.Add(WM.NCACTIVATE, _HandleNCActivate);
@@ -146,10 +130,8 @@ namespace WindowChromes
             _messageDictionary.Add(WM.DWMCOMPOSITIONCHANGED, _HandleDwmCompositionChanged);
         }
 
-
         public IntPtr WndProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
-
             var message = (WM) msg;
             foreach (var wm in _messageDictionary.Keys)
             {
@@ -158,34 +140,25 @@ namespace WindowChromes
                     return _messageDictionary[wm](hWnd, message, wParam, lParam, out handled);
                 }
             }
-
             return IntPtr.Zero;
-
         }
 
 
         #region Handlers
 
-        [SecurityCritical]
         private IntPtr _HandleNCActivate(IntPtr hWnd, WM uMsg, IntPtr wParam, IntPtr lParam, out bool handled)
         {
-
             // Directly call DefWindowProc with a custom parameter
-            // which bypasses any other handling of the message.
             var lRet = NativeMethods.DefWindowProc(hWnd, WM.NCACTIVATE, wParam, new IntPtr(-1));
             handled = true;
             return lRet;
         }
 
-
-        [SecurityCritical]
         private IntPtr _HandleNCCalcSize(IntPtr hWnd, WM uMsg, IntPtr wParam, IntPtr lParam, out bool handled)
         {
-           
             handled = true;
 
             // Per MSDN for NCCALCSIZE, always return 0, when wParam == FALSE
-
             var retVal = IntPtr.Zero;
             if (wParam.ToInt32() != 0) // wParam == TRUE
             {
@@ -195,8 +168,6 @@ namespace WindowChromes
             return retVal;
         }
 
-
-        [SecurityCritical]
         private IntPtr _HandleNCHitTest(IntPtr hWnd, WM uMsg, IntPtr wParam, IntPtr lParam, out bool handled)
         {
             if (_source.CompositionTarget == null)
@@ -222,7 +193,6 @@ namespace WindowChromes
             {
                 var obj = result.VisualHit;
 
-
                 if (CompositeChrome.GetIsHitTestVisibleInChrome((IInputElement)obj ))
                 {
                     handled = true;
@@ -240,19 +210,15 @@ namespace WindowChromes
                 }
             }
 */
-
             var inputElement = _window.InputHitTest(mousePosWindow);
             if (inputElement != null)
             {
-
                  if (CompositeChrome.GetIsHitTestVisibleInChrome(inputElement))
                  {
-
                      if (inputElement is WindowButtons wb)
                      {
                          var x = wb.IsEnabled;
                      }
-
 
                      handled = true;
                      return new IntPtr((int)HT.CLIENT);
@@ -278,7 +244,6 @@ namespace WindowChromes
 
             return new IntPtr((int)ht);
         }
-
 
         /// <summary>
         /// Matrix of the HT values for NC window messages.
@@ -339,15 +304,10 @@ namespace WindowChromes
             return ht;
         }
 
-
         /// <summary>
         /// Get the bounding rectangle for the window in physical coordinates.
         /// </summary>
         /// <returns>The bounding rectangle for the window.</returns>
-        /// <SecurityNote>
-        ///   Critical : Calls critical methods
-        /// </SecurityNote>
-        [SecurityCritical]
         private Rect _GetWindowRect(IntPtr hWnd)
         {
             // Get the window rectangle.
@@ -355,11 +315,6 @@ namespace WindowChromes
             return new Rect(windowPosition.Left, windowPosition.Top, windowPosition.Width, windowPosition.Height);
         }
 
-
-        /// <SecurityNote>
-        ///   Critical : Calls critical method
-        /// </SecurityNote>
-        [SecurityCritical]
         private IntPtr _HandleNCRButtonUp(IntPtr hWnd, WM uMsg, IntPtr wParam, IntPtr lParam, out bool handled)
         {
             // Emulate the system behavior of clicking the right mouse button over the caption area
@@ -372,11 +327,6 @@ namespace WindowChromes
             return IntPtr.Zero;
         }
 
-
-        /// <SecurityNote>
-        ///   Critical : Calls critical method
-        /// </SecurityNote>
-        [SecurityCritical]
         private IntPtr _HandleWindowPosChanged(IntPtr hWnd, WM uMsg, IntPtr wParam, IntPtr lParam, out bool handled)
         {
             // Still want to pass this to DefWndProc
@@ -384,19 +334,13 @@ namespace WindowChromes
             return IntPtr.Zero;
         }
 
-        /// <SecurityNote>
-        ///   Critical : Calls critical method
-        /// </SecurityNote>
-        [SecurityCritical]
         private IntPtr _HandleDwmCompositionChanged(IntPtr hWnd, WM uMsg, IntPtr wParam, IntPtr lParam, out bool handled)
         {
 
             handled = false;
             return IntPtr.Zero;
         }
-
         #endregion
-
 
         private void Window_SourceInitialized(object sender, EventArgs e)
         {
@@ -411,8 +355,6 @@ namespace WindowChromes
             if (_chromeBase != null) ChromeBase.HWndSource = _source;
 
             w.SourceInitialized -= Window_SourceInitialized;
-
-
 
             if (_isHooked) return;
 

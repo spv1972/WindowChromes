@@ -2,12 +2,12 @@
 
 namespace WindowChromes
 {
+    /// <inheritdoc />
     /// <summary>
     /// Binding with RatioConverter
     /// </summary>
     public class RatioBindingExtension : BindingBaseExtension
     {
-
         public RatioBindingExtension()
         {
         }
@@ -30,6 +30,5 @@ namespace WindowChromes
             }
             get => _ratio;
         }
-
     }
 }

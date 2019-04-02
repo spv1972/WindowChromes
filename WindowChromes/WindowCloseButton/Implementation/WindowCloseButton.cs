@@ -13,7 +13,6 @@ namespace WindowChromes
     /// </summary>
     public class WindowCloseButton : ButtonBase
     {
-
         private static readonly Type OwnerType = typeof(WindowCloseButton);
 
         #region ThemeStyle
@@ -29,7 +28,6 @@ namespace WindowChromes
         }
 
         #endregion
-
 
         #region InactiveBackground
         public static DependencyProperty InactiveBackgroundProperty =
@@ -52,8 +50,6 @@ namespace WindowChromes
             set => SetValue(InactiveForegroundProperty, value);
         }
         #endregion
-
-
 
         #region HoverBackground
         public static DependencyProperty HoverBackgroundProperty =
@@ -99,8 +95,6 @@ namespace WindowChromes
         }
         #endregion
 
-
-
         #region CloseButtonTone
         public static DependencyProperty CloseButtonToneProperty =
             DependencyProperty.Register("CloseButtonTone", typeof(CloseButtonTone), OwnerType);
@@ -114,7 +108,6 @@ namespace WindowChromes
 
 
         #region constructors
-
         static WindowCloseButton()
         {
             DefaultStyleKeyProperty.OverrideMetadata(OwnerType, new FrameworkPropertyMetadata(OwnerType));

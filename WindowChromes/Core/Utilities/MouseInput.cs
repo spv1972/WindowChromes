@@ -9,7 +9,6 @@ namespace WindowChromes
     /// </summary>
     internal class MouseInput
     {
-
         private static readonly Type OwnerType = typeof(MouseInput);
 
         #region Attached propperty OverrideCursor

@@ -12,7 +12,6 @@ namespace WindowChromes
     [MarkupExtensionReturnType(typeof(SolidColorBrush))]
     internal class SolidFrozenBrushExtension : MarkupExtension
     {
-
         public SolidFrozenBrushExtension()
         {
 
@@ -25,7 +24,6 @@ namespace WindowChromes
 
         [ConstructorArgument("color")]
         public Color Color { set; get; }
-
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {

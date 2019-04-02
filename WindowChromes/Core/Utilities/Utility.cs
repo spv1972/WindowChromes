@@ -32,7 +32,6 @@ namespace WindowChromes
             return (short)(i & 0xFFFF);
         }
 
-
         public static bool IsThicknessNonNegative(Thickness thickness)
         {
             if (!IsDoubleFiniteAndNonNegative(thickness.Top))
@@ -58,12 +57,10 @@ namespace WindowChromes
             return true;
         }
 
-
         public static bool IsDoubleFiniteAndNonNegative(double d)
         {
             return !double.IsNaN(d) && !double.IsInfinity(d) && !(d < 0);
         }
-
 
         /// <summary>
         /// Compare object values that may be null

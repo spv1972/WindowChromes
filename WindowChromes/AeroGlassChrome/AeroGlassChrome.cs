@@ -12,8 +12,6 @@ namespace WindowChromes
     {
         private static readonly Type OwnerType = typeof(AeroGlassChrome);
 
-
-
         #region Attached property AeroGlassChrome
         [DefaultValue("Null")]
         public static readonly DependencyProperty AeroGlassChromeProperty =
@@ -34,8 +32,6 @@ namespace WindowChromes
         {
             obj.SetValue(AeroGlassChromeProperty, value);
         }
-
-
 
         public static object AeroGlassChromeCoerceValue(DependencyObject d, object baseValue)
         {
@@ -58,8 +54,6 @@ namespace WindowChromes
             }
             return baseValue;
         }
-
-
 
         [AttachedPropertyBrowsableForType(typeof(Window))]
         private static void AeroGlassChromePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -101,10 +95,7 @@ namespace WindowChromes
 
 
         }
-
-
         #endregion
-
 
         /// <summary>
         /// Window Loaded handler
@@ -120,7 +111,6 @@ namespace WindowChromes
             ch.OwnerWindow = w;
             ch.HWndSource = (HwndSource)PresentationSource.FromVisual(w);
 
-
             var blurDesc =
                 DependencyPropertyDescriptor.FromProperty(IsBlurredProperty, typeof(AeroGlassChrome));
             blurDesc.RemoveValueChanged(w, IsBlurredPropertyChanged);
@@ -132,10 +122,8 @@ namespace WindowChromes
             if (!isBlur) ch.DisableBlur();
             else ch.EnableBlur();
 
-
             w.Loaded -= WindowLoadedHandler;
         };
-
 
         /// <summary>
         /// PropertyChanged Callback for Windows object
@@ -162,18 +150,13 @@ namespace WindowChromes
             }
         }
 
-
-
         /// <inheritdoc />
         /// <summary>
         /// Sets blur effect to current window
         /// </summary>
         public override void EnableBlur()
         {
-
             var hWnd = HWndSource.Handle;
-
-
 
             if (Environment.OSVersion.Version.Major >= 6)
             {
@@ -191,7 +174,6 @@ namespace WindowChromes
         /// </summary>
         public override void DisableBlur()
         {
-
             var hWnd = HWndSource.Handle;
 
             if (Environment.OSVersion.Version.Major >= 6)
@@ -204,9 +186,7 @@ namespace WindowChromes
                 }
 
             }
+
         }
-
-
-
     }
 }

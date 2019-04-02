@@ -12,7 +12,6 @@ namespace WindowChromes
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     internal class VistaGlassBlurrier
     {
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static bool ExtendGlassFrame(IntPtr hWnd, Thickness margin)
         {
@@ -36,13 +35,11 @@ namespace WindowChromes
             return true;
         }
 
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
      
         public static void DisableBlurFrame(IntPtr hWnd)
         {
             NativeMethods.VistaDisableBlurFrame(hWnd);
         }
-
     }
 }

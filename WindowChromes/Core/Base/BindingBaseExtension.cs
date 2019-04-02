@@ -7,6 +7,10 @@ using System.Windows.Markup;
 
 namespace WindowChromes
 {
+    /// <inheritdoc />
+    /// <summary>
+    /// Base abstract class for Binding methods
+    /// </summary>
     [MarkupExtensionReturnType(typeof(object))]
     public abstract class BindingBaseExtension : MarkupExtension
     {
@@ -19,7 +23,6 @@ namespace WindowChromes
         {
             Path = path;
         }
-
 
         [ConstructorArgument("path")]
         public PropertyPath Path { get; set; }
@@ -60,8 +63,6 @@ namespace WindowChromes
                 binding.Source = Source;
 
             return binding.ProvideValue(serviceProvider);
-
         }
-
     }
 }

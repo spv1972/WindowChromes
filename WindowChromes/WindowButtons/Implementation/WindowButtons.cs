@@ -1,9 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace WindowChromes
 {
@@ -14,9 +12,7 @@ namespace WindowChromes
     /// </summary>
     public class WindowButtons : WindowButtonsBase
     {
-
         private static readonly Type OwnerType = typeof(WindowButtons);
-
 
         #region constructors
 

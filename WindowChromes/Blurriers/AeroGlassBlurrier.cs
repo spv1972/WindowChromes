@@ -4,7 +4,6 @@ using System.Windows;
 
 namespace WindowChromes
 {
-   
     /// <summary>
     /// Set Enable/Dissamble Blur effect on Window
     /// for OC Windows 8-10
@@ -32,7 +31,6 @@ namespace WindowChromes
             NativeMethods.SetAccentPolicy(hWnd, AccentState.ACCENT_ENABLE_BLURBEHIND, AccentFlags.None, hex);
 
         }
-
 
         #region EaanbleBlur overloads
 
@@ -96,7 +94,6 @@ namespace WindowChromes
         }
 
         #endregion
-
 
         /// <summary>
         /// Disable blur by SetAccentPolicy
